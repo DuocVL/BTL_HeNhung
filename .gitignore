@@ -1,0 +1,47 @@
+# Build artifacts
+Debug/
+Release/
+build/
+Objects/
+Listings/
+*.o
+*.obj
+*.d
+*.elf
+*.map
+*.lst
+*.bin
+*.hex
+*.axf
+*.swo
+*.bak
+
+# STM32CubeIDE specific
+.project
+.cproject
+.settings/
+*.launch
+*~
+
+# Keil specific
+*.uvguix.*
+*.uvoptx
+*.uvprojx
+*.uvstate
+*.bak
+JLinkLog.txt
+JLinkSettings.ini
+RTE/
+Target*/
+startup/
+*.sct
+*.scvd
+*.lin
+
+# VS Code specific
+.vscode/
+
+# Other
+*.swp
+*.stackdump
+Thumbs.db
