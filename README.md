@@ -1,28 +1,27 @@
-# BÁO CÁO BÀI TẬP LỚN
+# BÁO CÁO BÀI TẬP LỚN HỆ NHÚNG
 
 Mô tả nội dung cần báo cáo của môn đồ án
-> Sinh viên nên Fork từ dự án này
 
 ## GIỚI THIỆU
 
-__Đề bài__: _Copy lại nội dung đề bài được yêu cầu._
-
+__Đề bài__: Thiết kế cân đo trọng lượng người, hiển thị trên màn hình LED 7 thanh và gửi kết quả về PC qua UART
+Mở rộng: quét thẻ RFID để định danh người cân, lưu trữ và theo dõi cân nặng theo thời gian. Ghép nối RC522 để quét thẻ, và built-in Real-time clock (có pin vào chân VBAT) để giữ thời gian khi mạch mất điện."
 __Sản phẩm:__
-1. Tính năng
-2. Tính năng
-3. Tính năng
+1. Thiết kế chế tạo cân đo trọng lượng của người, hiển thị trên màn hình LED 7 thanh
+2. Gửi kết quả cân nặng về máy tính (PC) thông qua UART.
+3. Quét thẻ RFID để định danh người cân, lưu trữ và theo dõi cân nặng theo thời gian
 - Ảnh chụp minh họa:\
   ![Ảnh minh họa](https://soict.hust.edu.vn/wp-content/uploads/logo-soict-hust-1-1024x416.png)
 
 ## TÁC GIẢ
 
-- Tên nhóm:......
+- Tên nhóm:10h37
 - Thành viên trong nhóm
   |STT|Họ tên|MSSV|Công việc|
   |--:|--|--|--|
-  |1|Lê Văn Được|20225296|hiện thị oled, hiệu ứng, và xử lý ngắt|
-  |2|Nguyễn Hoàng Giang|20225125|hiện thị oled, hiệu ứng, và xử lý ngắt|
-  |3|Hoàng Trung Hải|2022||
+  |1|Lê Văn Được|20225296|   |
+  |2|Nguyễn Hoàng Giang|20225125|  |
+  |3|Hoàng Trung Hải|20225307|   |
 
 ## MÔI TRƯỜNG HOẠT ĐỘNG
 
