@@ -20,7 +20,9 @@ __Sản phẩm:__
 - Thành viên trong nhóm
   |STT|Họ tên|MSSV|Công việc|
   |--:|--|--|--|
-  |1|Nguyễn Hoàng Hải|20002987|hiện thị oled, hiệu ứng, và xử lý ngắt|
+  |1|Lê Văn Được|20225296|hiện thị oled, hiệu ứng, và xử lý ngắt|
+  |2|Nguyễn Hoàng Giang|20225125|hiện thị oled, hiệu ứng, và xử lý ngắt|
+  |3|Hoàng Trung Hải|2022||
 
 ## MÔI TRƯỜNG HOẠT ĐỘNG
 
