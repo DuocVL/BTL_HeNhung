@@ -29,7 +29,7 @@ __Sản phẩm:__
 - **Kit, module phần cứng được sử dụng**
   + **STM32F429I Discovery kit:**
   + **Module HX711:** bộ chuyển đổi tín hiệu ADC để đọc tín hiệu từ cảm biến lực, chuyển đổi lực tác động thành tín hiệu điện
-  + **Module RC522:** được sử dụng để đọc và ghi dữ liệu cho thẻ RFID / NFC
+  + **Module RC522:** sử dụng để đọc và ghi dữ liệu cho thẻ RFID / NFC
 - **Phần mềm và công cụ phát triển**
   + **STM32CubeIDE:** môi trường phát triển tích hợp (IDE) dùng để lập trình và debug vi điều khiển STM32.
   + **Hercules:** giao tiếp, kiểm tra và mô phỏng các kết nối nối tiếp (UART)
@@ -37,7 +37,6 @@ __Sản phẩm:__
 ## SƠ ĐỒ SCHEMATIC
 
 _Cho biết cách nối dây, kết nối giữa các linh kiện_ 
-Ví dụ có thể liệt kê dạng bảng
 |STM32F429|Module ngoại vi|
 |--|--|
 |PA0|Nút bấm điều khiển trên board|
