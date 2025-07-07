@@ -55,7 +55,11 @@ __Sản phẩm:__
       *  @param  x  Tham số
       *  @param  y  Tham số
       */
-     void abc(int x, int y = 2);
+     void Set7SegDisplayValue(int val)
+    {
+    	DisplayValue = val;
+    	pos = 0;
+    }
   ```
   
 ### KẾT QUẢ
