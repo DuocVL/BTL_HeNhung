@@ -766,7 +766,7 @@ if(TM_MFRC522_Check(CardID) == MI_OK) {
 */
 ```
 8.Kết Luận\
-Hệ thống cân thông minh RFID được thiết kế với các hàm chức năng rõ ràng:\
+Hệ thống cân thông minh RFID được thiết kế với các hàm chức năng rõ ràng:
 
 	Đo lường: HX711 với độ chính xác cao
 	Nhận dạng: RFID MFRC522
