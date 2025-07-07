@@ -196,6 +196,76 @@ void microDelay(uint16_t delay)
 	- Độ trễ được tính bằng microsecond dựa trên tần số timer
  */
 ```
+```cpp
+int32_t getHX711(void)
+{
+  uint32_t data = 0;
+  uint32_t startTime = HAL_GetTick();
+  while(HAL_GPIO_ReadPin(DT_PORT, DT_PIN) == GPIO_PIN_SET)
+  {
+    if(HAL_GetTick() - startTime > 200)
+      return 0;
+  }
+  for(int8_t len=0; len<24 ; len++)
+  {
+    HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
+    microDelay(1);
+    data = data << 1;
+    HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
+    microDelay(1);
+    if(HAL_GPIO_ReadPin(DT_PORT, DT_PIN) == GPIO_PIN_SET)
+      data ++;
+  }
+  data = data ^ 0x800000;
+  HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
+  microDelay(1);
+  HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
+  microDelay(1);
+  return data;
+}
+/*
+  HÀM  getHX711(void) (main .c)
+
+  . MỤC ĐÍCH:  Đọc dữ liệu thô từ chip HX711 (ADC 24-bit cho cảm biến cân)
+  . THAM SỐ:
+      - Input: Không có
+      - Output: int32_t - Giá trị ADC 24-bit (0 nếu timeout)
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+     
+	  uint32_t data = 0;
+	  uint32_t startTime = HAL_GetTick();
+	  
+	  // Chờ HX711 sẵn sàng (DT pin LOW)
+	  while(HAL_GPIO_ReadPin(DT_PORT, DT_PIN) == GPIO_PIN_SET)
+	  {
+	    if(HAL_GetTick() - startTime > 200)      // Timeout sau 200ms
+	      return 0;                              // Trả về 0 nếu không có phản hồi
+	  }
+	  
+	  // Đọc 24 bit dữ liệu theo giao thức serial
+	  for(int8_t len=0; len<24 ; len++)
+	  {
+	    HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);  // Clock HIGH
+	    microDelay(1);                                       // Độ trễ 1μs
+	    data = data << 1;                                    // Dịch bit sang trái
+	    HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET); // Clock LOW
+	    microDelay(1);                                       // Độ trễ 1μs
+	    if(HAL_GPIO_ReadPin(DT_PORT, DT_PIN) == GPIO_PIN_SET)
+	      data++;                                            // Đọc bit dữ liệu
+	  }
+	  
+	  data = data ^ 0x800000;                    // Chuyển đổi two's complement
+	  
+	  // Tạo xung clock thứ 25 để chọn gain = 128 cho channel A
+	  HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_SET);
+	  microDelay(1);
+	  HAL_GPIO_WritePin(SCK_PORT, SCK_PIN, GPIO_PIN_RESET);
+	  microDelay(1);
+	  
+	  return data;                               // Trả về giá trị ADC 24-bit
+ */
+```
   
 ### KẾT QUẢ
 
