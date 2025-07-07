@@ -728,6 +728,52 @@ float knownHX711 = 165012;        // Giá trị ADC tương ứng
   . Ý NGHĨA: Mapping phần cứng cho việc giao tiếp với load cell amplifier
 */
 ```
+7.Logic chính trong hàm main
+7.1 Xử lý dữ liệu RFID và cân nặng
+```c
+// Đọc thẻ RFID
+if(TM_MFRC522_Check(CardID) == MI_OK) {
+    bool tonTai = false;
+    
+    // Kiểm tra thẻ đã tồn tại
+    for(int i = 0; i <= stt; i++) {
+        if(memcmp(duLieu[i].CardID, CardID, sizeof(CardID)) == 0) {
+            tonTai = true;
+            
+            if(weight > 0) {
+                // Cập nhật cân nặng mới
+                duLieu[i].canNang = weight;
+            } else {
+                // Hiển thị dữ liệu cũ
+                weight = duLieu[i].canNang;
+                Set7SegDisplayValue(weight / 10);
+            }
+            break;
+        }
+    }
+    
+    // Thêm bản ghi mới
+    if(!tonTai && weight > 0) {
+        stt++;
+        duLieu[stt].stt = stt;
+        memcpy(duLieu[stt].CardID, CardID, sizeof(CardID));
+        duLieu[stt].canNang = weight;
+    }
+}
+/*
+  . CHỨC NĂNG: Xử lý logic chính của hệ thống
+  . Ý NGHĨA: Quản lý dữ liệu thẻ RFID và cân nặng, cập nhật hoặc thêm mới bản ghi
+*/
+```
+8.Kết Luận\
+Hệ thống cân thông minh RFID được thiết kế với các hàm chức năng rõ ràng:\
+
+	Đo lường: HX711 với độ chính xác cao
+	Nhận dạng: RFID MFRC522
+	Hiển thị: LED 7-segment với ngắt timer
+	Giao tiếp: UART để debug và giám sát
+	Lưu trữ: Cấu trúc dữ liệu trong RAM
+
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
