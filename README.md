@@ -686,6 +686,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
  */
 ```
+5.Struct dữ liệu\
+5.1 Struct DuLieuCanNang
+```cpp
+typedef struct {
+    int stt;              // Số thứ tự bản ghi
+    uint8_t CardID[5];    // ID thẻ RFID (5 bytes)
+    int canNang;          // Cân nặng tương ứng (mg)
+} DuLieuCanNang;
+/*
+  . CHỨC NĂNG: Cấu trúc dữ liệu lưu trữ thông tin thẻ RFID và cân nặng
+  . THÀNH PHẦN:
+	stt: Định danh duy nhất cho mỗi bản ghi
+	CardID: Mã định danh thẻ RFID
+	canNang: Giá trị cân nặng được đo
+*/
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
