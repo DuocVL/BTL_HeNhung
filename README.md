@@ -162,6 +162,8 @@ void Run7SegDisplay()
           HAL_GPIO_WritePin(PORT_7SEG_CONTROL0, PIN_7SEG_CONTROL0, GPIO_PIN_SET);
       else
           HAL_GPIO_WritePin(PORT_7SEG_CONTROL1, PIN_7SEG_CONTROL1, GPIO_PIN_SET);
+
+   . NGUYÊN LÝ HOẠT ĐỘNG: Sử dụng kỹ thuật multiplexing - chỉ hiển thị 1 chữ số tại 1 thời điểm nhưng chuyển đổi nhanh để mắt thấy cả 2 chữ số sáng đồng thời.
  */
 
 ```
