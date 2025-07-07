@@ -608,6 +608,84 @@ static void MX_SPI4_Init(void)
 	HAL_SPI_Init(&hspi4);                                 // Khởi tạo SPI
  */
 ```
+4.Hàm timer và ngắt\
+4.1.Hàm MX_TIM6_Init()
+```cpp
+static void MX_TIM6_Init(void)
+{
+
+  /* USER CODE BEGIN TIM6_Init 0 */
+
+  /* USER CODE END TIM6_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM6_Init 1 */
+
+  /* USER CODE END TIM6_Init 1 */
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 89;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 99;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM6_Init 2 */
+
+  /* USER CODE END TIM6_Init 2 */
+
+}
+/*
+  HÀM MX_TIM6_Init(void) (main .c)
+
+  . MỤC ĐÍCH: Khởi tạo Timer 6 cho việc quét LED 7-segment
+
+  . THAM SỐ:
+      - Input: Không có
+      - Output: Không có
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+	htim6.Instance = TIM6;                                  // Chọn Timer 6
+	htim6.Init.Prescaler = 89;                             // Chia tần số: 90MHz/90 = 1MHz
+	htim6.Init.CounterMode = TIM_COUNTERMODE_UP;           // Chế độ đếm lên
+	htim6.Init.Period = 99;                                // Chu kỳ: 100us (1MHz/100)
+	htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;  // Tắt preload
+	HAL_TIM_Base_Init(&htim6);                             // Khởi tạo timer
+ */
+```
+4.2.Hàm HAL_TIM_PeriodElapsedCallback()
+```cpp
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if (htim->Instance == TIM6)
+  {
+    Run7SegDisplay(); // Gọi hàm quét LED trong ngắt timer
+  }
+}
+/*
+  HÀM HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) (main .c)
+
+  . MỤC ĐÍCH: Hàm callback được gọi khi timer overflow
+
+  . THAM SỐ:
+      - Input: TIM_HandleTypeDef *htim - Con trỏ đến handle timer
+      - Output: Không có
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+	if (htim->Instance == TIM6)                    // Kiểm tra Timer 6
+	{
+	  Run7SegDisplay();                            // Gọi hàm quét LED trong ngắt timer
+	}
+ */
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
