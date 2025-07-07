@@ -51,8 +51,8 @@ __Sản phẩm:__
 
 
   
-**I.File 7seg.c**
-
+**I.File 7seg.c**\\
+1.Hàm Set7SegDisplayValue(int val)\
   
 ```cpp
 void Set7SegDisplayValue(int val)
@@ -74,6 +74,7 @@ void Set7SegDisplayValue(int val)
      - pos = 0;               // Reset vị trí multiplexing
  */
 ```
+2.Hàm Run7SegDisplay()\
 ```cpp
 void Run7SegDisplay()
 {
@@ -172,7 +173,7 @@ void Run7SegDisplay()
 
 ```
 
-**II.File main.c**\
+**II.File main.c**\\
 1.Hàm điều khiển HX711\
 1.1.Hàm microDelay(uint16_t delay)\
 ```cpp
