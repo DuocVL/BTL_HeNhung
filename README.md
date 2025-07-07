@@ -4,8 +4,7 @@ Dự án thiết kế một thiết bị cân kỹ thuật số sử dụng vi �
 
 ## GIỚI THIỆU
 
-__Đề bài__: Thiết kế cân đo trọng lượng người, hiển thị trên màn hình LED 7 thanh và gửi kết quả về PC qua UART
-Mở rộng: quét thẻ RFID để định danh người cân, lưu trữ và theo dõi cân nặng theo thời gian. Ghép nối RC522 để quét thẻ và built-in Real-time clock (có pin vào chân VBAT) để giữ thời gian khi mạch mất điện."
+__Đề bài__: Thiết kế cân đo trọng lượng người, hiển thị trên màn hình LED 7 thanh và gửi kết quả về PC qua UART. Tính năng mở rộng: quét thẻ RFID để định danh người cân, lưu trữ và theo dõi cân nặng theo thời gian; ghép nối RC522 để quét thẻ và built-in Real-time clock (có pin vào chân VBAT) để giữ thời gian khi mạch mất điện."
 
 __Sản phẩm:__
 1. Thiết kế chế tạo cân đo trọng lượng của người, hiển thị trên màn hình LED 7 thanh
