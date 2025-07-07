@@ -48,6 +48,9 @@ __Sản phẩm:__
 ### ĐẶC TẢ HÀM
 
 - Giải thích một số hàm quan trọng: ý nghĩa của hàm, tham số vào, ra
+
+
+  
 - File 7seg.c
 
   
@@ -168,6 +171,8 @@ void Run7SegDisplay()
  */
 
 ```
+
+- File main.c
 ```cpp
 void microDelay(uint16_t delay)
 {
