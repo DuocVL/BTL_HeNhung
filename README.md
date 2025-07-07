@@ -552,6 +552,62 @@ static void MX_USART1_UART_Init(void)
 
  */
 ```
+3.2.Hàm MX_SPI4_Init()
+```cpp
+static void MX_SPI4_Init(void)
+{
+
+  /* USER CODE BEGIN SPI4_Init 0 */
+
+  /* USER CODE END SPI4_Init 0 */
+
+  /* USER CODE BEGIN SPI4_Init 1 */
+
+  /* USER CODE END SPI4_Init 1 */
+  /* SPI4 parameter configuration*/
+  hspi4.Instance = SPI4;
+  hspi4.Init.Mode = SPI_MODE_MASTER;
+  hspi4.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi4.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi4.Init.NSS = SPI_NSS_SOFT;
+  hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi4.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi4.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi4.Init.CRCPolynomial = 10;
+  if (HAL_SPI_Init(&hspi4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI4_Init 2 */
+
+  /* USER CODE END SPI4_Init 2 */
+
+}
+/*
+  HÀM MX_SPI4_Init(void) (main .c)
+
+  . MỤC ĐÍCH: Khởi tạo SPI4 cho giao tiếp với module RFID MFRC522
+
+  . THAM SỐ:
+      - Input: Không có
+      - Output: Không có
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+	hspi4.Instance = SPI4;                                // Chọn SPI4
+	hspi4.Init.Mode = SPI_MODE_MASTER;                    // STM32 là Master
+	hspi4.Init.Direction = SPI_DIRECTION_2LINES;          // Full duplex
+	hspi4.Init.DataSize = SPI_DATASIZE_8BIT;              // 8 bit data
+	hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;            // Clock idle LOW
+	hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;                // Data trên cạnh đầu
+	hspi4.Init.NSS = SPI_NSS_SOFT;                        // Software NSS
+	hspi4.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;  // Chia tần số /16
+	hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;               // MSB trước
+	HAL_SPI_Init(&hspi4);                                 // Khởi tạo SPI
+ */
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
