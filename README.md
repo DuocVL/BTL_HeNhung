@@ -173,6 +173,8 @@ void Run7SegDisplay()
 ```
 
 **II.File main.c**
+1.Hàm điều khiển HX711
+1.1.Hàm microDelay(uint16_t delay)
 ```cpp
 void microDelay(uint16_t delay)
 {
