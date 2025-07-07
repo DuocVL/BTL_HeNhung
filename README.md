@@ -176,7 +176,7 @@ void Run7SegDisplay()
 
 **II.File main.c**\
 \
-1.Hàm điều khiển HX711\
+**1.Hàm điều khiển HX711**\
 1.1.Hàm microDelay(uint16_t delay)
 ```cpp
 void microDelay(uint16_t delay)
@@ -321,7 +321,7 @@ int weigh()
 
  */
 ```
-2.Hàm khởi tạo hệ thống\
+**2.Hàm khởi tạo hệ thống**\
 2.1.Hàm SystemClock_Config()
 ```cpp
 void SystemClock_Config(void)
@@ -500,7 +500,7 @@ static void MX_GPIO_Init(void)
 
  */
 ```
-3.Hàm giao tiếp ngoại vi\
+**3.Hàm giao tiếp ngoại vi**\
 3.1.Hàm MX_USART1_UART_Init()
 ```cpp
 static void MX_USART1_UART_Init(void)
@@ -608,7 +608,7 @@ static void MX_SPI4_Init(void)
 	HAL_SPI_Init(&hspi4);                                 // Khởi tạo SPI
  */
 ```
-4.Hàm timer và ngắt\
+**4.Hàm timer và ngắt**\
 4.1.Hàm MX_TIM6_Init()
 ```cpp
 static void MX_TIM6_Init(void)
@@ -686,7 +686,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
  */
 ```
-5.Struct dữ liệu\
+**5.Struct dữ liệu**\
 5.1 Struct DuLieuCanNang
 ```cpp
 typedef struct {
@@ -702,7 +702,7 @@ typedef struct {
 	canNang: Giá trị cân nặng được đo
 */
 ```
-6.Constants và biến toàn cục\
+**6.Constants và biến toàn cục**\
 6.1.Các hằng số hiệu chuẩn
 
 ```c
@@ -728,7 +728,7 @@ float knownHX711 = 165012;        // Giá trị ADC tương ứng
   . Ý NGHĨA: Mapping phần cứng cho việc giao tiếp với load cell amplifier
 */
 ```
-7.Logic chính trong hàm main
+**7.Logic chính trong hàm main**\
 7.1 Xử lý dữ liệu RFID và cân nặng
 ```c
 // Đọc thẻ RFID
@@ -765,7 +765,7 @@ if(TM_MFRC522_Check(CardID) == MI_OK) {
   . Ý NGHĨA: Quản lý dữ liệu thẻ RFID và cân nặng, cập nhật hoặc thêm mới bản ghi
 */
 ```
-8.Kết Luận\
+**8.Kết Luận**\
 Hệ thống cân thông minh RFID được thiết kế với các hàm chức năng rõ ràng:
 
 	Đo lường: HX711 với độ chính xác cao
