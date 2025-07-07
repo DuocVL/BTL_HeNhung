@@ -702,6 +702,32 @@ typedef struct {
 	canNang: Giá trị cân nặng được đo
 */
 ```
+6.Constants và biến toàn cục\
+6.1.Các hằng số hiệu chuẩn
+
+```c
+uint32_t tare = 8412745;          // Giá trị cân không tải
+float knownOriginal = 148000;     // Khối lượng chuẩn (mg)
+float knownHX711 = 165012;        // Giá trị ADC tương ứng
+/*
+  . CHỨC NĂNG: Các hằng số được sử dụng để hiệu chuẩn cân
+  . Ý NGHĨA:
+	tare: Giá trị ADC khi cân không có tải
+	knownOriginal: Khối lượng thực của vật chuẩn
+	knownHX711: Giá trị ADC đo được với vật chuẩn
+*/
+```
+6.2.Định nghĩa pin HX711
+```c
+#define SCK_PIN   GPIO_PIN_0      // Pin clock
+#define SCK_PORT  GPIOE
+#define DT_PIN    GPIO_PIN_1      // Pin dữ liệu
+#define DT_PORT   GPIOE
+/*
+  . CHỨC NĂNG: Định nghĩa các pin kết nối với HX711
+  . Ý NGHĨA: Mapping phần cứng cho việc giao tiếp với load cell amplifier
+*/
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
