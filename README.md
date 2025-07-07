@@ -183,6 +183,7 @@ void microDelay(uint16_t delay)
   HÀM microDelay(uint16_t delay) (main .c)
 
   . MỤC ĐÍCH: Tạo độ trễ chính xác ở mức microsecond cho giao tiếp HX711
+
   . THAM SỐ:
       - Input: uint16_t delay - Thời gian delay (0-65535 μs)
       - Output: không có (void)
@@ -227,6 +228,7 @@ int32_t getHX711(void)
   HÀM  getHX711(void) (main .c)
 
   . MỤC ĐÍCH:  Đọc dữ liệu thô từ chip HX711 (ADC 24-bit cho cảm biến cân)
+
   . THAM SỐ:
       - Input: Không có
       - Output: int32_t - Giá trị ADC 24-bit (0 nếu timeout)
