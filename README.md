@@ -1,11 +1,12 @@
 # BÁO CÁO BÀI TẬP LỚN HỆ NHÚNG
 
-Dự án thiết kế một thiết bị cân kỹ thuật số sử dụng vi điều khiển STM32F429-DISC. Nó đọc dữ liệu từ một cảm biến lực thông qua ADC, xử lý các phép đo và hiển thị trọng lượng đã tính toán trên màn hình LED 7 thanh. Trọng lượng cũng được truyền qua UART để gỡ lỗi hoặc ghi dữ liệu.
+Dự án thiết kế một thiết bị cân kỹ thuật số sử dụng vi điều khiển STM32F429-DISC. Nó đọc dữ liệu từ một cảm biến lực thông qua ADC, xử lý các phép đo và hiển thị trọng lượng đã tính toán trên màn hình LED 7 thanh. Trọng lượng cũng được truyền qua UART về máy tính kết hợp với tính năng quét thẻ RFID để định danh người phục vụ lưu trữ và theo dõi cân nặng theo thời gian.
 
 ## GIỚI THIỆU
 
 __Đề bài__: Thiết kế cân đo trọng lượng người, hiển thị trên màn hình LED 7 thanh và gửi kết quả về PC qua UART
 Mở rộng: quét thẻ RFID để định danh người cân, lưu trữ và theo dõi cân nặng theo thời gian. Ghép nối RC522 để quét thẻ và built-in Real-time clock (có pin vào chân VBAT) để giữ thời gian khi mạch mất điện."
+
 __Sản phẩm:__
 1. Thiết kế chế tạo cân đo trọng lượng của người, hiển thị trên màn hình LED 7 thanh
 2. Gửi kết quả cân nặng về máy tính (PC) thông qua UART.
