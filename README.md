@@ -167,6 +167,29 @@ void Run7SegDisplay()
  */
 
 ```
+```cpp
+void microDelay(uint16_t delay)
+{
+  __HAL_TIM_SET_COUNTER(&htim2, 0);
+  while (__HAL_TIM_GET_COUNTER(&htim2) < delay);
+}
+/*
+  HÀM microDelay(uint16_t delay) (main .c)
+
+  . MỤC ĐÍCH: Tạo độ trễ chính xác ở mức microsecond cho giao tiếp HX711
+  . THAM SỐ:
+      - Input: uint16_t delay - Thời gian delay (0-65535 μs)
+      - Output: không có (void)
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+     
+	  __HAL_TIM_SET_COUNTER(&htim2, 0);          // Reset bộ đếm Timer 2 về 0
+	  while (__HAL_TIM_GET_COUNTER(&htim2) < delay); // Chờ đợi cho đến khi bộ đếm đạt giá trị delay
+
+	=> - Sử dụng Timer 2 làm timebase cho độ trễ chính xác
+	   - Độ trễ được tính bằng microsecond dựa trên tần số timer
+ */
+```
   
 ### KẾT QUẢ
 
