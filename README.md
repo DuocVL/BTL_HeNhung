@@ -57,7 +57,7 @@ void Set7SegDisplayValue(int val)
     pos = 0;
 }
 /*
-  HÀM Set7SegDisplayValue(int val)
+  HÀM Set7SegDisplayValue(int val) (7seg.c)
 
   . MỤC ĐÍCH: Thiết lập giá trị cần hiển thị trên LED 7 đoạn
 
@@ -131,7 +131,7 @@ void Run7SegDisplay()
 }
 
 /*
-  HÀM Run7SegDisplay()
+  HÀM Run7SegDisplay() (7seg.c)
 
   . MỤC ĐÍCH: Thực hiện multiplexing để hiển thị 2 digit trên LED 7 đoạn
 
