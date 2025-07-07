@@ -36,18 +36,8 @@ __Sản phẩm:__
 
 ## SƠ ĐỒ SCHEMATIC
 
-_Cho biết cách nối dây, kết nối giữa các linh kiện_ 
-|STM32F429|Module ngoại vi|
-|--|--|
-|PA0|Nút bấm điều khiển trên board|
-|PG13|Led báo trên board|
-|PE2|MQ3 SCK|
-|PE3|MQ3 SDA|
+![Untitled Sketch 2_bb](https://github.com/user-attachments/assets/2107ced8-3b4a-4645-872c-b71cd2a6ddce)
 
-hoặc dạng ảnh:\
-![image](https://github.com/user-attachments/assets/f15f7379-09bf-472a-b0d9-4de6d32a6ec0)
-
-hoặc bất cứ dạng nào thể hiện được cách đấu nối giữa các linh kiện
 
 
 ### TÍCH HỢP HỆ THỐNG
