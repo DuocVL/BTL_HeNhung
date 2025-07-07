@@ -500,6 +500,58 @@ static void MX_GPIO_Init(void)
 
  */
 ```
+3.Hàm giao tiếp ngoại vi\
+3.1.Hàm MX_USART1_UART_Init()
+```cpp
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+/*
+  HÀM MX_USART1_UART_Init(void) (main .c)
+
+  . MỤC ĐÍCH: Khởi tạo UART1 cho giao tiếp với PC/thiết bị ngoài
+
+  . THAM SỐ:
+      - Input: Không có
+      - Output: Không có
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+	huart1.Instance = USART1;                             // Chọn UART1
+	huart1.Init.BaudRate = 115200;                        // Tốc độ baud 115200
+	huart1.Init.WordLength = UART_WORDLENGTH_8B;          // 8 bit dữ liệu
+	huart1.Init.StopBits = UART_STOPBITS_1;               // 1 stop bit
+	huart1.Init.Parity = UART_PARITY_NONE;                // Không parity
+	huart1.Init.Mode = UART_MODE_TX_RX;                   // Cả TX và RX
+	huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;          // Không flow control
+	huart1.Init.OverSampling = UART_OVERSAMPLING_16;      // Oversampling x16
+	HAL_UART_Init(&huart1);                               // Khởi tạo UART
+
+ */
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
