@@ -59,12 +59,12 @@ __Sản phẩm:__
     	pos = 0;
     }
 
-    Mục đích:
+    **Mục đích:**
       Thiết lập giá trị cần hiển thị trên LED 7 đoạn
-    Tham số:
+    **Tham số:**
       Input: int val - Giá trị số cần hiển thị (0-99)
       Output: Không có (void)
-    Hoạt động:
+    **Hoạt động:**
       cppDisplayValue = val;  // Lưu giá trị cần hiển thị
       pos = 0;            // Reset vị trí multiplexing
 
