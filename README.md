@@ -463,6 +463,7 @@ static void MX_GPIO_Init(void)
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
+
 /*
   HÀM MX_GPIO_Init(void) (main .c)
 
