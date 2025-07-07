@@ -405,6 +405,100 @@ void SystemClock_Config(void)
 
  */
 ```
+2.2.Hàm MX_GPIO_Init() 
+```cpp
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+
+  /* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10
+                          |GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14
+                          |GPIO_PIN_15|GPIO_PIN_0, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PE4 PE8 PE9 PE10
+                           PE11 PE12 PE13 PE14
+                           PE15 PE0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10
+                          |GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14
+                          |GPIO_PIN_15|GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PG2 PG3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PE1 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+
+  /* USER CODE END MX_GPIO_Init_2 */
+}
+/*
+  HÀM MX_GPIO_Init(void) (main .c)
+
+  . MỤC ĐÍCH: Khởi tạo các pin GPIO cho LED 7-segment, HX711, RFID
+
+  . THAM SỐ:
+      - Input: Không có
+      - Output: Không có
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	
+	// Kích hoạt clock cho các port GPIO
+	__HAL_RCC_GPIOE_CLK_ENABLE();                         // Kích hoạt GPIOE
+	__HAL_RCC_GPIOH_CLK_ENABLE();                         // Kích hoạt GPIOH
+	__HAL_RCC_GPIOA_CLK_ENABLE();                         // Kích hoạt GPIOA
+	__HAL_RCC_GPIOG_CLK_ENABLE();                         // Kích hoạt GPIOG
+	__HAL_RCC_GPIOC_CLK_ENABLE();                         // Kích hoạt GPIOC
+	
+	// Cấu hình các pin output cho LED 7-segment và HX711
+	GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10
+	                     |GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14
+	                     |GPIO_PIN_15|GPIO_PIN_0;           // Chọn các pin
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;            // Push-pull output
+	GPIO_InitStruct.Pull = GPIO_NOPULL;                    // Không pull-up/down
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;           // Tốc độ thấp
+	HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);               // Khởi tạo GPIOE
+	
+	// Cấu hình pin input cho HX711 DT
+	GPIO_InitStruct.Pin = GPIO_PIN_1;                      // Pin PE1
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;                // Chế độ input
+	GPIO_InitStruct.Pull = GPIO_NOPULL;                    // Không pull
+	HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);               // Khởi tạo pin input
+
+ */
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
