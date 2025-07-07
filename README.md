@@ -268,7 +268,52 @@ int32_t getHX711(void)
 	  return data;                               // Trả về giá trị ADC 24-bit
  */
 ```
-  
+```cpp
+int weigh()
+{
+  int32_t  total = 0;
+  int32_t  samples = 50;
+  int milligram;
+  float coefficient;
+  for(uint16_t i=0 ; i<samples ; i++)
+  {
+      total += getHX711();
+  }
+  int32_t average = (int32_t)(total / samples);
+  coefficient = knownOriginal / knownHX711;
+  milligram = (int)(average-tare)*coefficient;
+  return milligram;
+}
+/*
+  HÀM weigh() (main .c)
+
+  . MỤC ĐÍCH: Tính toán trọng lượng thực tế từ giá trị ADC
+
+  . THAM SỐ:
+      - Input: Không có
+      - Output: int - Trọng lượng tính bằng milligram
+
+  . HOẠT ĐỘNG/CHỨC NĂNG:
+
+	  int32_t total = 0;
+	  int32_t samples = 50;                      // Lấy 50 mẫu để tính trung bình
+	  int milligram;
+	  float coefficient;
+	  
+	  // Lấy 50 mẫu ADC để giảm nhiễu
+	  for(uint16_t i=0; i<samples; i++)
+	  {
+	    total += getHX711();                     // Cộng dồn các giá trị đọc được
+	  }
+	  
+	  int32_t average = (int32_t)(total / samples);      // Tính giá trị trung bình
+	  coefficient = knownOriginal / knownHX711;          // Hệ số hiệu chuẩn = 148000/165012
+	  milligram = (int)(average-tare)*coefficient;       // Công thức: (ADC - Tare) × Hệ số
+	  
+	  return milligram;                                  // Trả về trọng lượng (mg)
+
+ */
+```
 ### KẾT QUẢ
 
 - Các ảnh chụp với caption giải thích.
