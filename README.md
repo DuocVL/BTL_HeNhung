@@ -48,6 +48,7 @@ __Sản phẩm:__
 ### ĐẶC TẢ HÀM
 
 - Giải thích một số hàm quan trọng: ý nghĩa của hàm, tham số vào, ra
+- File 7seg.c
 
   
 ```cpp
