@@ -57,14 +57,17 @@ void Set7SegDisplayValue(int val)
     pos = 0;
 }
 /*
-  Hàm Set7SegDisplayValue(int val)
-  MỤC ĐÍCH: Thiết lập giá trị cần hiển thị trên LED 7 đoạn
-  THAM SỐ:
-    - Input: int val - Giá trị số cần hiển thị (0-99)
-    - Output: không có (void)
-  HOẠT ĐỘNG:
-   - DisplayValue = val;  // Lưu giá trị cần hiển thị
-   - pos = 0;               // Reset vị trí multiplexing
+  HÀM Set7SegDisplayValue(int val)
+
+  . MỤC ĐÍCH: Thiết lập giá trị cần hiển thị trên LED 7 đoạn
+
+  . THAM SỐ:
+      - Input: int val - Giá trị số cần hiển thị (0-99)
+      - Output: không có (void)
+
+  . HOẠT ĐỘNG:
+     - DisplayValue = val;  // Lưu giá trị cần hiển thị
+     - pos = 0;               // Reset vị trí multiplexing
  */
 ```
 
