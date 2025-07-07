@@ -53,7 +53,7 @@ __Sản phẩm:__
   
 **I.File 7seg.c**\
 \
-1.Hàm Set7SegDisplayValue(int val)\
+1.Hàm Set7SegDisplayValue(int val)
   
 ```cpp
 void Set7SegDisplayValue(int val)
@@ -75,7 +75,7 @@ void Set7SegDisplayValue(int val)
      - pos = 0;               // Reset vị trí multiplexing
  */
 ```
-2.Hàm Run7SegDisplay()\
+2.Hàm Run7SegDisplay()
 ```cpp
 void Run7SegDisplay()
 {
@@ -174,9 +174,10 @@ void Run7SegDisplay()
 
 ```
 
-**II.File main.c**\\
+**II.File main.c**\
+\
 1.Hàm điều khiển HX711\
-1.1.Hàm microDelay(uint16_t delay)\
+1.1.Hàm microDelay(uint16_t delay)
 ```cpp
 void microDelay(uint16_t delay)
 {
@@ -201,6 +202,7 @@ void microDelay(uint16_t delay)
 	- Độ trễ được tính bằng microsecond dựa trên tần số timer
  */
 ```
+1.2.Hàm getHX711(void)
 ```cpp
 int32_t getHX711(void)
 {
@@ -272,6 +274,7 @@ int32_t getHX711(void)
 	  return data;                               // Trả về giá trị ADC 24-bit
  */
 ```
+1.3.Hàm weigh()
 ```cpp
 int weigh()
 {
@@ -318,49 +321,87 @@ int weigh()
 
  */
 ```
+2.Hàm khởi tạo hệ thống\
+2.1.Hàm SystemClock_Config()
 ```cpp
-int weigh()
+void SystemClock_Config(void)
 {
-  int32_t  total = 0;
-  int32_t  samples = 50;
-  int milligram;
-  float coefficient;
-  for(uint16_t i=0 ; i<samples ; i++)
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 180;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 4;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
-      total += getHX711();
+    Error_Handler();
   }
-  int32_t average = (int32_t)(total / samples);
-  coefficient = knownOriginal / knownHX711;
-  milligram = (int)(average-tare)*coefficient;
-  return milligram;
+
+  /** Activate the Over-Drive mode
+  */
+  if (HAL_PWREx_EnableOverDrive() != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV4;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  {
+    Error_Handler();
+  }
 }
 /*
-  HÀM weigh() (main .c)
+  HÀM SystemClock_Config(void) (main .c)
 
-  . MỤC ĐÍCH: Tính toán trọng lượng thực tế từ giá trị ADC
+  . MỤC ĐÍCH: Cấu hình clock hệ thống STM32F4 hoạt động tối ưu
 
   . THAM SỐ:
       - Input: Không có
-      - Output: int - Trọng lượng tính bằng milligram
+      - Output: Không có
 
   . HOẠT ĐỘNG/CHỨC NĂNG:
 
-	  int32_t total = 0;
-	  int32_t samples = 50;                      // Lấy 50 mẫu để tính trung bình
-	  int milligram;
-	  float coefficient;
-	  
-	  // Lấy 50 mẫu ADC để giảm nhiễu
-	  for(uint16_t i=0; i<samples; i++)
-	  {
-	    total += getHX711();                     // Cộng dồn các giá trị đọc được
-	  }
-	  
-	  int32_t average = (int32_t)(total / samples);      // Tính giá trị trung bình
-	  coefficient = knownOriginal / knownHX711;          // Hệ số hiệu chuẩn = 148000/165012
-	  milligram = (int)(average-tare)*coefficient;       // Công thức: (ADC - Tare) × Hệ số
-	  
-	  return milligram;                                  // Trả về trọng lượng (mg)
+	RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+	RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+	
+	__HAL_RCC_PWR_CLK_ENABLE();                           // Kích hoạt clock PWR
+	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);  // Thiết lập voltage scaling
+	
+	// Cấu hình HSE và PLL
+	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;    // Sử dụng HSE
+	RCC_OscInitStruct.HSEState = RCC_HSE_ON;                     // Bật HSE
+	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;                 // Bật PLL
+	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;         // PLL từ HSE
+	RCC_OscInitStruct.PLL.PLLM = 4;                              // PLLM = 4
+	RCC_OscInitStruct.PLL.PLLN = 180;                            // PLLN = 180
+	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;                 // PLLP = 2
+	
+	// Cấu hình bus clock
+	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;    // SYSCLK từ PLL
+	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;          // AHB = 180MHz
+	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;           // APB1 = 45MHz
+	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV4;           // APB2 = 45MHz
 
  */
 ```
