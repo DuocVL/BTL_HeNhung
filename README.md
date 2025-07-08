@@ -784,6 +784,6 @@ Hệ thống cân thông minh RFID được thiết kế với các hàm chức 
   	  ![image](https://github.com/user-attachments/assets/9f214305-590d-4028-bd15-fde427d21c0b)
 	+ Nếu cân nặng không thay đổi thì hiển thị dữ liệu cũ
 
-![image](https://github.com/user-attachments/assets/00909acb-81a4-4006-ba3d-814800e94cf1)
+	![image](https://github.com/user-attachments/assets/00909acb-81a4-4006-ba3d-814800e94cf1)
 
 
