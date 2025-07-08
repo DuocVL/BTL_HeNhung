@@ -41,7 +41,27 @@ __Sản phẩm:__
 ### TÍCH HỢP HỆ THỐNG
 
 - Mô tả các thành phần phần cứng và vai trò của chúng: máy chủ, máy trạm, thiết bị IoT, MQTT Server, module cảm biến IoT...
+
+
+| Thành phần              | Vai trò chính                                                                 |
+|--------------------------|------------------------------------------------------------------------------|
+| **Thiết bị IoT (STM32 + Load Cell + RC522)** | Thiết bị nhúng trung tâm, có nhiệm vụ đọc giá trị cân nặng, nhận dạng người dùng qua RFID, hiển thị và gửi dữ liệu |
+| **Load Cell + HX711**   | Cảm biến đo trọng lượng, chuyển tín hiệu analog sang số (digital) qua HX711 |
+| **Module RFID RC522**   | Quét thẻ RFID, xác định danh tính người cân để lưu thông tin cá nhân|
+| **LED 7 đoạn**          | Hiển thị trọng lượng đã đo được một cách trực quan|
+| **PC (Máy trạm)**        | Nhận dữ liệu từ STM32 qua UART, có thể hiển thị lên giao diện terminal (VD: Hercules)|
+
+  
 - Mô tả các thành phần phần mềm và vai trò của chúng, vị trí nằm trên phần cứng nào: Front-end, Back-end, Worker, Middleware...
+
+
+| Thành phần              | Vai trò                                                                                 | Vị trí triển khai       |
+|--------------------------|------------------------------------------------------------------------------------------|--------------------------|
+| **Embedded Software (firmware)** | Điều khiển phần cứng STM32, đọc giá trị từ cảm biến, quét RFID, hiển thị và gửi dữ liệu | Trên **STM32**          |
+| **UART Communication Handler** | Quản lý việc truyền dữ liệu từ STM32 sang máy tính                                 | Trên **STM32** & **PC** |
+| **Front-end (PC Terminal hoặc giao diện GUI)** | Giao diện người dùng để xem dữ liệu cân nặng, mã RFID, thời gian (trên Hercules) | Trên **PC**             |
+| **Data Logger / Storage**      | Lưu trữ dữ liệu theo thời gian để phục vụ theo dõi sức khỏe, thống kê               | Trên **PC** |
+
 
 ### ĐẶC TẢ HÀM
 
