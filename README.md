@@ -1,6 +1,6 @@
 # BÁO CÁO BÀI TẬP LỚN HỆ NHÚNG
 
-Dự án thiết kế một thiết bị cân kỹ thuật số sử dụng vi điều khiển STM32F429-DISC. Nó đọc dữ liệu từ một cảm biến lực thông qua ADC, xử lý các phép đo và hiển thị trọng lượng đã tính toán trên màn hình LED 7 thanh. Trọng lượng cũng được truyền qua UART về máy tính kết hợp với tính năng quét thẻ RFID để định danh người phục vụ lưu trữ và theo dõi cân nặng theo thời gian.
+Dự án thiết kế một thiết bị cân kỹ thuật số sử dụng vi điều khiển STM32F429-DISC. Nó đọc dữ liệu từ một cảm biến lực thông qua ADC, xử lý các phép đo và hiển thị trọng lượng đã tính toán trên màn hình LED 7 thanh. Trọng lượng cũng được truyền qua UART về máy tính kết hợp với tính năng quét thẻ RFID để định danh người, phục vụ lưu trữ và theo dõi cân nặng theo thời gian.
 
 ## GIỚI THIỆU
 
@@ -19,7 +19,13 @@ __Sản phẩm:__
 - Thành viên trong nhóm
   |STT|Họ tên|MSSV|Công việc|
   |--:|--|--|--|
-  |1|Lê Văn Được|20225296|   |
+  |1|Lê Văn Được|20225296|Phát triển cảm biến & thuật toán cân: SPI đọc dữ liệu từ HX711, viết hàm getHX711(), microDelay() và weigh().
+
+Cân chỉnh hệ số (tare, coefficient) để đảm bảo độ chính xác cao.
+
+Tối ưu và kiểm thử phần đọc/hiển thị dữ liệu từ load cell.
+
+Unit-test thuật toán đo để xác nhận độ ổn định, không lỗi tràn.|
   |2|Nguyễn Hoàng Giang|20225125|  |
   |3|Hoàng Trung Hải|20225307|   |
 
