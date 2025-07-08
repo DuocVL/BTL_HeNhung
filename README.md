@@ -773,5 +773,17 @@ Hệ thống cân thông minh RFID được thiết kế với các hàm chức 
 
 ### KẾT QUẢ
 
-- Các ảnh chụp với caption giải thích.
-- Hoặc video sản phẩm
+- Hiển thị cân nặng trên LED 7 thanh
+![image](https://github.com/user-attachments/assets/120a02e9-63fb-435e-bae3-535e0e544a04)
+- Gửi dữ liệu cân nặng về máy tính, hiển thị trên Hercules
+  	+ Nếu không có thẻ
+  	  
+  	  ![image](https://github.com/user-attachments/assets/a8028080-c84a-4451-b938-65e9767cb10e)
+  	+ Nếu có thẻ
+
+  	  ![image](https://github.com/user-attachments/assets/9f214305-590d-4028-bd15-fde427d21c0b)
+- Nếu cân nặng không thay đổi thì hiển thị dữ liệu cũ
+  
+![image](https://github.com/user-attachments/assets/00909acb-81a4-4006-ba3d-814800e94cf1)
+
+
