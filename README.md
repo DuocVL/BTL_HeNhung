@@ -10,8 +10,6 @@ __Sản phẩm:__
 1. Thiết kế chế tạo cân đo trọng lượng của người, hiển thị trên màn hình LED 7 thanh
 2. Gửi kết quả cân nặng về máy tính (PC) thông qua UART.
 3. Quét thẻ RFID để định danh người cân, lưu trữ và theo dõi cân nặng theo thời gian
-- Ảnh chụp minh họa:\
-  ![Ảnh minh họa](https://soict.hust.edu.vn/wp-content/uploads/logo-soict-hust-1-1024x416.png)
 
 ## TÁC GIẢ
 
