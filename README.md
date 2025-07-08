@@ -1,4 +1,4 @@
-# BÁO CÁO BÀI TẬP LỚN HỆ NHÚNG
+# BÁO CÁO BÀI TẬP LỚN HỆ NHÚNG - CÂN SỨC KHOẺ
 
 Dự án thiết kế một thiết bị cân kỹ thuật số sử dụng vi điều khiển STM32F429-DISC. Nó đọc dữ liệu từ một cảm biến lực thông qua ADC, xử lý các phép đo và hiển thị trọng lượng đã tính toán trên màn hình LED 7 thanh. Trọng lượng cũng được truyền qua UART về máy tính kết hợp với tính năng quét thẻ RFID để định danh người, phục vụ lưu trữ và theo dõi cân nặng theo thời gian.
 
