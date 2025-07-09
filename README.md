@@ -18,7 +18,7 @@ __Sản phẩm:__
   |STT|Họ tên|MSSV|Công việc|
   |--:|--|--|--|
   |1|Lê Văn Được|20225296|Phát triển cảm biến và thuật toán cân: SPI đọc dữ liệu từ HX711, viết hàm getHX711(), microDelay() và weigh(); Tối ưu và kiểm thử phần đọc/hiển thị dữ liệu từ load cell, Unit-test thuật toán đo để xác nhận độ ổn định, không lỗi tràn.|
-  |2|Nguyễn Hoàng Giang|20225125|Hiển thị LED 7‑segment, tối ưu 2 file 7seg.c với các hàm: Set7SegDisplayValue(int val) và Run7SegDisplay(); Cấu hình Timer 6 (MX_TIM6_Init) và callback HAL_TIM_PeriodElapsedCallback cho multiplexing LED; Kiểm tra hiển thị đúng số (0–99), không bị flicker, ánh sáng đều.|
+  |2|Nguyễn Hoàng Giang|20225125|Hiển thị LED 7‑segment, tối ưu 2 file 7seg.c với các hàm: Set7SegDisplayValue(int val) và Run7SegDisplay(); Cấu hình Timer 6 (MX_TIM6_Init) và callback HAL_TIM_PeriodElapsedCallback cho multiplexing LED; Kiểm tra hiển thị đúng số, không bị flicker, ánh sáng đều.|
   |3|Hoàng Trung Hải|20225307|Cấu hình MX_SPI4_Init để kết nối với RC522 qua SPI; Viết hàm đọc card (TM_MFRC522_Check) và xử lý logic: Cập nhật DuLieuCanNang nếu tồn tại và thêm mới nếu là thẻ mới; Cấu hình UART1 (MX_USART1_UART_Init) để truyền kết quả cân qua máy tính sử dụng Hercules; Viết giao thức truyền (format dữ liệu: CardID + cân nặng + stt); Lưu trữ trong RAM cấu trúc DuLieuCanNang và có thể thiết lập cơ chế reset/flush lúc cần.|
 
 ## MÔI TRƯỜNG HOẠT ĐỘNG
